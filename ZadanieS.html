@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Actions(args) {
+            this.args = arguments;
+        };
+
+        //Описываю методы экземпляра Actions 
+
+        Actions.prototype.addition = function () {
+            if (this.result == 0) {
+                var i = 0;
+                var j = 2;
+                var ad = 0;
+                for (; i < this.args.length, i < j; i++) {
+                    if (this.args[i] instanceof Array)
+                        ad += adMas(this.args[i]);
+                    else ad += this.args[i];
+                }
+            }
+            else {
+                if (this.args[i] instanceof Array)
+                    ad += adMas(this.args[i]);
+                else ad = this.result + this.args[cycle];
+                cycle++;
+            }
+            Actions.prototype.result = ad;
+            return cycle;
+        }
+
+        Actions.prototype.subtraction = function () {
+            if (this.result == 0) {
+                var i = 0;
+                var j = 2;
+                var sub = 0;
+                for (; i < this.args.length, i < j; i++) {
+                    if (sub == 0) {
+                        sub = this.args[i];
+                    }
+                    else sub -= this.args[i];
+                    if (this.args[i] instanceof Array)
+                        sub -= subMas(this.args[i]);
+                    else sub -= this.args[i];
+                }
+            }
+            else {
+                if (this.args[cycle] instanceof Array)
+                    sub = this.result - subMas(this.args[cycle]);
+                else sub = this.result - this.args[cycle];
+                cycle++;
+            }
+            Actions.prototype.result = sub;
+            return cycle;
+        }
+
+        Actions.prototype.multiplication = function () {
+            if (this.result == 0) {
+                var i = 0;
+                var j = 2;
+                var mult = 0;
+                for (; i < this.args.length, i < j; i++) {
+                    if (mult == 0) {
+                        mult = this.args[i];
+                    }
+                    else mult *= this.args[i];
+                    if (this.args[i] instanceof Array)
+                        mult *= mulMas(this.args[i]);
+                    else mult *= this.args[i];
+                }
+            }
+            else {
+                if (this.args[cycle] instanceof Array)
+                    mult = this.result * mulMas(this.args[cycle]);
+                else
+                    if (this.args[cycle] == 0) this.args[cycle] = 1;
+                mult = this.result * this.args[cycle];
+                cycle++;
+            }
+            Actions.prototype.result = mult;
+            return cycle;
+        }
+
+        Actions.prototype.division = function () {
+            if (this.result == 0) {
+                var i = 0;
+                var j = 2;
+                var divi = 0;
+                for (; i < this.args.length, i < j; i++) {
+                    if (divi == 0) {
+                        divi = this.args[i];
+                    }
+                    else divi /= this.args[i];
+                    if (this.args[i] instanceof Array)
+                        divi /= divMas(this.args[i]);
+                    else divi /= this.args[i];
+                }
+            }
+            else {
+                if (this.args[cycle] instanceof Array)
+                    divi = this.result / divMas(this.args[cycle]);
+                else
+                    if (this.args[cycle] == 0) this.args[cycle] = 1;
+                divi = this.result / this.args[cycle];
+                cycle++;
+            }
+            Actions.prototype.result = divi;
+            return cycle;
+        }
+
+        Actions.prototype.result = 0;
+
+        //Описываю функции для вычисления элементов класса Array
+
+        function adMas(_Array_) {
+            var i = 0;
+            var aM = 0;
+            for (; i < _Array_.length; i++) {
+                aM += _Array_[i];
+            }
+            return aM;
+        }
+
+        function subMas(_Array_) {
+            var i = 0;
+            var sM = 0;
+            for (; i < _Array_.length; i++) {
+                if (_Array_[i] == 0) continue;
+                if (sM == 0)
+                    sM = _Array_[i];
+                else sM -= _Array_[i];
+            }
+            return sM;
+        }
+
+        function mulMas(_Array_) {
+            var i = 0;
+            var mM = 0;
+            for (; i < _Array_.length; i++) {
+                if (_Array_[i] == 0) continue;
+                if (mM == 0)
+                    mM = _Array_[i];
+                else mM *= _Array_[i];
+            }
+            return mM;
+        }
+
+        function divMas(_Array_) {
+            var i = 0;
+            var dM = 0;
+            for (; i < _Array_.length; i++) {
+                if (_Array_[i] == 0) continue;
+                if (dM == 0)
+                    dM = _Array_[i];
+                else dM /= _Array_[i];
+            }
+            return dM;
+        }
+
+        var begin = 2;
+        var cycle = begin;
+        var a = new Actions(2, 2, 3, 2, 0);
+        var c = a.addition();
+        var s = a.subtraction();
+        var d = a.multiplication();
+        var e = a.division();
+        alert(a.result);
+    </script>
+</body>
+</html>
