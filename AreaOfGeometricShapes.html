@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function CalculateSquare() { }
+
+        CalculateSquare.prototype.areaRectangle = function () { return this[1] * this[2]; }
+        CalculateSquare.prototype.areaTriangle = function () { return this[1] * this[2] / 2; }
+        CalculateSquare.prototype.areaTrapezoid = function () { return this[3] * (this[1] + this[2]) / 2; }
+
+        function Shape() { this.result = 0; }
+
+        Shape.prototype = new CalculateSquare();
+        Shape.prototype.constructor = Shape;
+
+        Shape.prototype.calculate = function (data) {
+            switch (data[0]) {
+                case 'Rectagle': {
+                    var i = this.areaRectangle.call(data);
+                    this.result = i;
+                    return this.result;
+                }
+                case 'Triangle': {
+                    var i = this.areaTriangle.call(data);
+                    this.result = i;
+                    return this.result;
+                }
+
+                case 'Trapezoid': {
+                    var i = this.areaTrapezoid.call(data);
+                    this.result = i;
+                    return this.result;
+                }
+            }
+        }
+
+        function Init() { return arguments; }
+
+        var c = new Shape();
+        var d = Init('Triangle', 2, 3);
+        c.calculate(d);
+        console.log(c.result);
+    </script>
+</body>
+</html>
