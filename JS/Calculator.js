@@ -32,9 +32,12 @@ Actions.prototype.addition = function () {
             ad = this.result + this.args[i];
             Array.prototype.splice.call(this.args, 0, 1);
         }
+
     }
+
     this.result = ad;
     this.Proverka = true;
+    return this;
 }
 
 Actions.prototype.subtraction = function () {
@@ -73,6 +76,7 @@ Actions.prototype.subtraction = function () {
     }
     this.result = sub;
     this.Proverka = true;
+    return this;
 }
 
 Actions.prototype.multiplication = function () {
@@ -111,6 +115,7 @@ Actions.prototype.multiplication = function () {
     }
     this.result = mult;
     this.Proverka = true;
+    return this;
 }
 
 Actions.prototype.division = function () {
@@ -149,6 +154,7 @@ Actions.prototype.division = function () {
     }
     this.result = divi;
     this.Proverka = true;
+    return this;
 }
 
 //Описываю функции для вычисления элементов класса Array
